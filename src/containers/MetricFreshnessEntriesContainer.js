@@ -12,9 +12,9 @@ export function MetricFreshnessEntriesContainer() {
   return (
     <div className="container">
       {metricFreshnessList &&
-        metricFreshnessList.map(metricFreshness =>
-          console.log(metricFreshness)
-        )}
+        metricFreshnessList.map(metricFreshness => (
+          <MetricFreshnessEntry metricFreshnessEntry={metricFreshness} />
+        ))}
     </div>
   );
 }
