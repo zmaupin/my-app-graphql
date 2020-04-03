@@ -1,14 +1,10 @@
 import React from "react";
 
-export function MetricFreshnessEntry({ metricFreshnessEntry }) {
+export function MetricFreshnessEntry(entry) {
   return (
-    <div className="metric_freshness_entry">
-      <div className="metric_freshness_entry__name">
-        <p>{metricFreshnessEntry.name}</p>
-      </div>
-      <div className="metric_freshness_entry__timestamp">
-        <p>{metricFreshnessEntry.timestamp}</p>
-      </div>
+    <div key={entry.entry.id}>
+      <p>{entry.entry.name}</p>
+      <p>{entry.entry.timestamp}</p>
     </div>
   );
 }

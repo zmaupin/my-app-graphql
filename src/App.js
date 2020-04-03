@@ -1,7 +1,7 @@
 import React from "react";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
-import { MetricFreshnessEntriesContainer } from "./containers/MetricFreshnessEntriesContainer";
+import { MetricFreshnessContainer } from "./containers/MetricFreshnessContainer";
 
 export function App() {
   const client = new ApolloClient({
@@ -11,7 +11,7 @@ export function App() {
   return (
     <ApolloProvider client={client}>
       <main>
-        <MetricFreshnessEntriesContainer />
+        <MetricFreshnessContainer />
       </main>
     </ApolloProvider>
   );

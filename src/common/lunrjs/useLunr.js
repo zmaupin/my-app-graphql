@@ -38,7 +38,6 @@ export const useLunr = (query, providedIndex, providedStore) => {
     if (!query || !index || !store) return [];
 
     const lunrResults = index.search(query);
-
     return lunrResults.map(({ ref }) => store[ref]);
   }, [query, index, store]);
 };
