@@ -3,7 +3,7 @@ import lunr from "lunr";
 import { useQuery } from "@apollo/react-hooks";
 
 import { GET_METRIC_FRESHNESS_ENTRIES } from "../graphql/get-metric-freshness-entry";
-import { MetricFreshnessEntry } from "../components/MetricFreshnessEntry";
+import { MetricFreshnessEntries } from "../components/MetricFreshnessEntries";
 
 // const store = [
 //   {
@@ -50,7 +50,7 @@ export function MetricFreshnessContainer() {
   });
 
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState(null);
+  const [results, setResults] = useState(metricFreshnessList);
 
   useEffect(() => {
     const searchResults = index.search(query);
@@ -59,6 +59,7 @@ export function MetricFreshnessContainer() {
     );
 
     setResults(processedResults);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
   const handleQueryChange = event => {
@@ -66,7 +67,6 @@ export function MetricFreshnessContainer() {
     setQuery(event.target.value);
   };
 
-  console.log(`results: ${results}`);
   const entries = query === "" ? metricFreshnessList : results;
 
   return (
@@ -74,9 +74,7 @@ export function MetricFreshnessContainer() {
       <div className="container">
         <input onChange={handleQueryChange} placeholder="Searching..." />
       </div>
-      {entries.map(entry => (
-        <MetricFreshnessEntry key={entry.id} entry={entry} />
-      ))}
+      <MetricFreshnessEntries entries={entries} />
     </div>
   );
 }
