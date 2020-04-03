@@ -64,7 +64,7 @@ export function MetricFreshnessContainer() {
     setQuery(event.target.value);
   };
 
-  const entries = query == "" ? store : results;
+  const entries = query === "" ? store : results;
 
   return (
     <div className="container">
